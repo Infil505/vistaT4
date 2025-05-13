@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración Bienes Inmuebles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.3;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000;
+        }
+
+        .assistance-box {
+            border-right: 2px solid #000;
+            padding: 5px;
+            width: 30%;
+            font-size: 10px;
+        }
+
+        .title-box {
+            text-align: center;
+            width: 60%;
+        }
+
+        .logo-box {
+            width: 10%;
+            text-align: center;
+        }
+
+        .main-title {
+            margin: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .subtitle {
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            background-color: #f0f0f0;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 5px;
+            margin: 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 4px;
+            text-align: left;
+            vertical-align: top;
+            height: 25px;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: normal;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .checkbox-container {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .checkbox-input {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .signature-box {
+            border-top: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer {
+            padding: 5px;
+            font-size: 10px;
+            text-align: right;
+            border-top: 1px solid #000;
+        }
+
+        .zona-homogenea {
+            font-size: 12px;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: 95%;
+            border: none;
+            border-bottom: 1px dotted #999;
+            background-color: transparent;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            background-color: #f9f9f9;
+        }
+
+        textarea {
+            resize: none;
+            height: 100%;
+            width: 98%;
+        }
+
+        .short-input {
+            width: 60px;
+        }
+
+        @media print {
+            body {
+                font-size: 10px;
+            }
+
+            .container {
+                max-width: 100%;
+                border: none;
+            }
+
+            input,
+            textarea {
+                border-bottom: 1px dotted #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form class="needs-validation" novalidate>
+        <div class="alert alert-warning mt-3" role="alert">
+            Complete todos los campos obligatorios antes de enviar el formulario. Los campos incompletos serán
+            resaltados.
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="assistance-box">
+                    El contribuyente solicitó asistencia del funcionario Municipal para completar la presente
+                    Declaración:
+                    <br><br>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="form-check-input" id="asistencia_si" class="checkbox-input">
+                        <label for="asistencia_si">SÍ</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="asistencia_no" class="checkbox-input">
+                        <label for="asistencia_no">NO</label>
+                    </div>
+                    <div style="text-align: right; padding-top: 5px;">
+                        FIRMA _______________
+                    </div>
+                </div>
+                <div class="title-box">
+                    <h1 class="main-title">MUNICIPALIDAD DE DESAMPARADOS</h1>
+                    <h2 class="subtitle">DECLARACIÓN DEL IMPUESTO SOBRE BIENES INMUEBLES</h2>
+                </div>
+                <div class="logo-box">
+                    <div
+                        style="width: 60px; height: 60px; margin: 0 auto; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center;">
+                        Logo
+                    </div>
+                </div>
+            </div>
+            <div class="zona-homogenea">ZONA HOMOGENEA $1
+                <div class="invalid-feedback">Este campo es obligatorio.</div>
+            </div>
+
+            <!-- Aquí se incluirán CUADRO I, II, III y IV -->
+
+            <h3 class="section-title">CUADRO I. IDENTIFICACIÓN DEL PROPIETARIO</h3>
+            <table>
+                <tr>
+                    <td colspan="5" style="background-color: #f0f0f0; text-align: center; font-weight: bold;">EN CASO DE
+                        PERSONA JURÍDICA ANOTAR DATOS DEL REPRESENTANTE LEGAL</td>
+                </tr>
+                <tr>
+                    <th width="30%">1. N° CÉDULA<br>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Escriba aquí" required>
+                            <div class="form-text">Debe incluir todos los dígitos, sin guiones.</div>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                    </th>
+                    <td width="70%" colspan="3">2. NOMBRE Y APELLIDOS<br>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">3. DOMICILIO FISCAL (SEÑAS)<br>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>4. PROVINCIA<br>
+                        <input type="text">
+                    </th>
+                    <th>5. CANTÓN<br>
+                        <input type="text">
+                    </th>
+                    <th>6. DISTRITO<br>
+                        <input type="text">
+                    </th>
+                    <th>7. N° TELÉFONO<br>
+                        <input type="text">
+                    </th>
+                    <th>8. N° FAX<br>
+                        <input type="text">
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="5">9. CORREO ELECTRÓNICO PARA NOTIFICACIONES:<br>
+                        <input type="email" class="form-control" placeholder="correo@ejemplo.com" $1 required>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td colspan="5" style="background-color: #f0f0f0; text-align: center; font-weight: bold;">EN CASO DE
+                        PERSONA JURÍDICA ANOTAR DATOS DEL REPRESENTANTE LEGAL</td>
+                </tr>
+                <tr>
+                    <th width="30%">10. N° CÉDULA<br>
+                        <input type="text">
+                    </th>
+                    <td width="70%" colspan="3">11. NOMBRE Y APELLIDOS<br>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">12. DOMICILIO FISCAL (SEÑAS)<br>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>13. PROVINCIA<br>
+                        <input type="text">
+                    </th>
+                    <th>14. CANTÓN<br>
+                        <input type="text">
+                    </th>
+                    <th>15. DISTRITO<br>
+                        <input type="text">
+                    </th>
+                    <th>16. N° TELÉFONO<br>
+                        <input type="text">
+                    </th>
+                    <th>17. N° FAX<br>
+                        <input type="text">
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="5">18. CORREO ELECTRÓNICO PARA NOTIFICACIONES:<br>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="correo@ejemplo.com" required>
+                            <div class="form-text">Verifique que el correo esté bien escrito.</div>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <h3 class="section-title">CUADRO II. IDENTIFICACIÓN DE LA PROPIEDAD</h3>
+            <table>
+                <tr>
+                    <th>19. UBICACIÓN</th>
+                    <td>Distrito <input type="text"></td>
+                    <td colspan="2">Dirección Exacta <input type="text"></td>
+                </tr>
+                <tr>
+                    <th>20. N° DE FINCA</th>
+                    <td><input type="text"></td>
+                    <th>21. N° PLANO CATASTRO</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>22. ÁREA (M CUADRADOS)</th>
+                    <td><input type="number" class="form-control" placeholder="0" $1 required></td>
+                    <th>25. FRENTE PROPIEDAD</th>
+                    <td><input type="text"> metros</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>23. SERVICIOS PÚBLICOS QUE POSEE:</th>
+                    <th>24. VÍA ACCESO PRINCIPAL:</th>
+                    <th>26. REGULARIDAD</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check"><label class="form-check-label">$1</label></div><br>
+                        <label><input type="checkbox"> Cordón y caño</label><br>
+                        <label><input type="checkbox"> Cañería</label><br>
+                        <label><input type="checkbox"> Alcantarillado</label><br>
+                        <label><input type="checkbox"> Teléfono</label><br>
+                        <label><input type="checkbox"> Electricidad</label><br>
+                        <label><input type="checkbox"> Alumbrado Público</label><br>
+                        <label><input type="checkbox"> Todos los anteriores</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"> Camino asfaltado</label><br>
+                        <label><input type="checkbox"> Alameda</label><br>
+                        <label><input type="checkbox"> Camino de lastre</label><br>
+                        <label><input type="checkbox"> Camino de tierra</label><br>
+                        <label><input type="checkbox"> Servidumbre</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"> Regular</label><br>
+                        <label><input type="checkbox"> Irregular</label> <input type="text" class="short-input"> %
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>27. PENDIENTE</th>
+                    <th>28. NIVEL</th>
+                    <th>29. UBICACIÓN EN LA MANZANA</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label><input type="checkbox"> Plano (0 - 5%)</label><br>
+                        <label><input type="checkbox"> Ondulado (5-15%)</label><br>
+                        <label><input type="checkbox"> Muy accidentado (30-45%)</label><br>
+                        <label><input type="checkbox"> Muy quebrado (más de 60%)</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"> Alto nivel</label><br>
+                        <label><input type="checkbox"> Medio nivel</label><br>
+                        <label><input type="checkbox"> Bajo nivel</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"> Esquinero</label><br>
+                        <label><input type="checkbox"> Cabecero</label><br>
+                        <label><input type="checkbox"> En callejón sin salida</label><br>
+                        <label><input type="checkbox"> En servidumbre al fondo</label>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>30. HIDROLOGÍA</th>
+                    <th>31. USO DEL SUELO</th>
+                    <th>32. VALOR UNITARIO DEL TERRENO</th>
+                    <th>33. VALOR TOTAL DEL TERRENO</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label><input type="checkbox"> Excelente</label><br>
+                        <label><input type="checkbox"> Muy bueno</label><br>
+                        <label><input type="checkbox"> Bueno</label><br>
+                        <label><input type="checkbox"> Regular</label>
+                    </td>
+                    <td>
+                        <label><input type="checkbox"> Excelente</label><br>
+                        <label><input type="checkbox"> Muy bueno</label><br>
+                        <label><input type="checkbox"> Bueno</label><br>
+                        <label><input type="checkbox"> Regular</label>
+                    </td>
+                    <td>
+                        ₡ <input type="text"> <br> Metro cuadrado / Hectárea
+                    </td>
+                    <td>
+                        ₡ <input type="text"> <br> Pasar a casilla N° 49
+                    </td>
+                </tr>
+            </table>
+
+            <h3 class="section-title">CUADRO III. DESCRIPCIÓN DE CONSTRUCCIONES, INSTALACIONES Y OBRAS COMPLEMENTARIAS
+            </h3>
+            <table>
+                <tr>
+                    <th>34. USO</th>
+                    <th>35. EDAD</th>
+                    <th>36. ESTADO</th>
+                    <th>37. N° PISOS</th>
+                    <th>38. NÚMERO APOSENTOS</th>
+                    <th>39. ÁREA M²</th>
+                    <th>40. VALOR UNITARIO POR M²</th>
+                    <th>41. VALOR TOTAL CONSTRUCC.</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <div class="mb-3">
+                            <input type="number" class="form-control" placeholder="0" required>
+                            <div class="form-text">Ingrese solo números enteros. No use decimales.</div>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+            </table>
+            <p><strong>42. VALOR TOTAL DE LAS CONSTRUCCIONES (Llevar a la casilla N° 50):</strong> ₡ <input type="text">
+            </p>
+            <table>
+                <tr>
+                    <th>43. DESCRIPCIÓN DE LA OBRA</th>
+                    <th>44. PAREDES EXTERNAS</th>
+                    <th>45. INTERNAS</th>
+                    <th>46. CUBIERTA</th>
+                    <th>47. CIELOS</th>
+                    <th>48. PISOS</th>
+                    <th>49. BAÑOS</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+
+            <h3 class="section-title">CUADRO IV. DETERMINACIÓN DEL VALOR</h3> DETERMINACIÓN DEL VALOR</h3>
+            <table>
+                <tr>
+                    <th>49. VALOR TOTAL DEL TERRENO</th>
+                    <td>₡ <input type="text"></td>
+                </tr>
+                <tr>
+                    <th>50. VALOR TOTAL DE CONSTRUCCIÓN</th>
+                    <td>₡ <input type="text"></td>
+                </tr>
+                <tr>
+                    <th>51. VALOR TOTAL DEL TERRENO Y CONSTRUCCIÓN</th>
+                    <td>₡ <input type="text"></td>
+                </tr>
+            </table>
+            <div class="signature-box" style="display: flex; justify-content: space-between;">
+                <div style="width: 60%; text-align: left;">
+                    <p>Declaro bajo la presente juramento que la información es verdadera</p>
+                </div>
+                <div style="width: 35%; text-align: center;">
+                    <p><strong>FIRMA DEL PROPIETARIO</strong></p>
+                    <p>__________________________</p>
+                </div>
+            </div>
+            <div class="footer">
+                Este formulario debe ser enviado al correo electrónico: <strong>catastro@desamparados.go.cr</strong><br>
+                En caso de dudas, puede comunicarse al número 2217-3651
+            </div>
+            <!-- FIN CUADRO I al IV -->
+        </div>
+        <div id="alerta-validacion" class="alert alert-danger d-none text-center" role="alert">
+            🛑 Oye, faltan campos por rellenar. Por favor completá los campos resaltados.
+        </div>
+
+        <div class="text-center my-4">
+            <button class="btn btn-primary" type="submit">Enviar formulario</button>
+        </div>
+
+        <script>
+            (() => {
+                'use strict';
+                const forms = document.querySelectorAll('.needs-validation');
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            document.getElementById("alerta-validacion").classList.remove("d-none");
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                        if (form.checkValidity()) {
+                            document.getElementById("alerta-validacion").classList.add("d-none");
+                        }
+
+                        const firstInvalid = form.querySelector(':invalid');
+                        if (firstInvalid) {
+                            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            firstInvalid.focus();
+                        }
+                    }, false);
+                });
+            })();
+        </script>
+    </form>
+</body>
+
+</html>
